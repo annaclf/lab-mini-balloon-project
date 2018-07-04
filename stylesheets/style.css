@@ -20,7 +20,8 @@ body {
   font: 400 20px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0;
   color: #5b5e6d;
-  background: lightskyblue;
+  background: url('http://longwallpapers.com/Desktop-Wallpaper/sky-wallpaper-hd-resolution-For-Desktop-Wallpaper.jpg');
+  background-size: cover;
   min-height: 100vh;
   overflow: hidden;
 }
@@ -162,7 +163,7 @@ img{
   position: absolute;
   width: 80px;
   transition: .8s;
-    transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
   z-index: 2;
 }
 .balloon:after{
@@ -181,10 +182,9 @@ img{
   top: 200px;
 }
 .balloon.flyUp{
-  top:-100%;
+  top:-140px;
 }
 .balloon.splash{
-  opacity: 0;
 }
 .balloon-board{
   height: 100vh;
@@ -197,7 +197,7 @@ img{
   opacity: 0;
   z-index: 3;
 }
-.balloon-board .balloon{
+.balloon-board .balloon.moving{
   animation-name: dropBalloon;
   animation-duration: 7s;
   animation-iteration-count: infinite;
@@ -207,7 +207,16 @@ img{
   left: 0;
   opacity: 1;
 }
-
+#counter{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+#counter span{
+  font-size: 200px;
+  color: #fff;
+}
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
 
@@ -282,7 +291,7 @@ img{
     top: -20%;
   }
   to {
-    top: 110%;
+    top: 100%;
   }
 }
 
@@ -291,7 +300,7 @@ img{
     top: -20%;
   }
   to {
-    top: 110%;
+    top: 97%;
   }
 }
 
@@ -300,7 +309,7 @@ img{
     top: -20%;
   }
   to {
-    top: 110%;
+    top: 97%;
   }
 }
 
@@ -309,7 +318,7 @@ img{
     top: -20%;
   }
   to {
-    top: 110%;
+    top: 97%;
   }
 }
 
@@ -318,6 +327,6 @@ img{
     top: -20%;
   }
   to {
-    top: 110%;
+    top: 97%;
   }
 }
