@@ -1,0 +1,323 @@
+/*
+background-grey: #F4F3F4;
+button-purple: #192592
+main-titles dark-grey: #2C303F;
+paragraph grey: #5b5e6d;
+nav grey: #5b5e6d;
+*/
+/*Flexbox
+
+*/
+/* ---- reset ---- */
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body {
+  font: 400 20px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
+  color: #5b5e6d;
+  background: lightskyblue;
+  min-height: 100vh;
+  overflow: hidden;
+}
+h1,h2,h3{
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: #2C303F;
+  line-height: 1;
+}
+h1{
+  font-size: 3rem;
+}
+h2{
+  font-size: 2rem;
+}
+h3{
+  font-size: 1.7rem;
+}
+img{
+  max-width: 100%;
+}
+.container {
+  width: 85%;
+  margin: 0 auto;
+}
+.flex-space-between{
+  justify-content: space-between;
+}
+.flex-center{
+  justify-content: center;
+}
+.flex-column{
+  flex-direction: column;
+}
+.flex-row-reverse{
+  flex-direction: row-reverse;
+}
+.align-center{
+  align-items: center;
+}
+.main-footer .mobile-flex .footer-img{
+  width: 100%;
+}
+.text-center{
+  text-align: center;
+}
+.top-bar{
+  border-bottom:1px solid #F4F3F4;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: auto;
+  width: 100%;
+  background:#fff;
+}
+.top-logo{
+  width: 100px;
+}
+.top-logo >img {
+  max-width: 100%;
+}
+.top-bar .menu{
+  display: none;
+}
+
+.button_container {
+  position: fixed;
+  top: 1.5rem;
+  right: 2rem;
+  height: 27px;
+  width: 24px;
+  cursor: pointer;
+  z-index: 12;
+  transition: opacity .25s ease;
+}
+.button_container span {
+  background: #5b5e6d;
+  border: none;
+  height: 4px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all .35s ease;
+  cursor: pointer;
+}
+.button_container span:nth-of-type(2) {
+  top: 9px;
+}
+.button_container span:nth-of-type(3) {
+  top: 18px;
+}
+.btn{
+  width: 100%;
+  border-radius: 4px;
+  background:#192592;
+  color: #fff;
+  padding: 20px 10px;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.btn-stroked{
+  border:1px solid #192592;
+  background: #fff;
+  color: #192592;
+  transition: all 0.4s;
+}
+.btn-stroked:hover{
+  cursor: pointer;
+  background:#192592;
+  color: #fff;
+}
+.main-content{
+  text-align: center;
+}
+.main-content .row{
+  height: 100vh;
+}
+.bottom-bar{
+  background: #F4F3F4;
+  border-bottom: 1px solid #ebebeb;
+  border-top: 1px solid #ebebeb;
+}
+
+.main-footer{
+  position: fixed;
+  text-align: center;
+  padding: 40px 0 0;
+  bottom: 0;
+  width: 100%;
+  font-size: 10px;
+}
+.balloon {
+  border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+  display: block;
+  height: 100px;
+  background-color:red;
+  opacity: 0.7;
+  position: absolute;
+  width: 80px;
+  transition: .8s;
+    transition-timing-function: ease-in;
+  z-index: 2;
+}
+.balloon:after{
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 10px solid red;
+  bottom: -5px;
+  content: "";
+  height: 0;
+  left: 45%;
+  position: absolute;
+  width: 0;
+}
+.main-content .balloon{
+  left: 100px;
+  top: 200px;
+}
+.balloon.flyUp{
+  top:-100%;
+}
+.balloon.splash{
+  opacity: 0;
+}
+.balloon-board{
+  height: 100vh;
+  width: 100vw;
+  background: black;
+  position: fixed;
+  left: -100%;
+  top: 0;
+  transition: all 0.8s;
+  opacity: 0;
+  z-index: 3;
+}
+.balloon-board .balloon{
+  animation-name: dropBalloon;
+  animation-duration: 7s;
+  animation-iteration-count: infinite;
+  top: 0;
+}
+.balloon-board.open{
+  left: 0;
+  opacity: 1;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .main-content{
+    text-align: left;
+  }
+  .row{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .top-bar .menu{
+    display: block;
+  }
+  .top-bar .menu >li > a{
+    color: #5b5e6d;
+    font-size: 1rem;
+  }
+  .flex-container {
+    display: flex;
+    flex-flow: row wrap;
+    align-items:center;
+  }
+  
+  .col-50{
+   width: 50%;
+  }
+  .col-20{
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+  .top-bar .menu{
+    list-style: none;
+  }
+  .top-bar .menu > li{
+    display: inline-block;
+  }
+  .menu a{
+    font-size: 1.3rem;
+    padding-right: 10px;
+    text-decoration: none;
+    color: #000;
+  }
+  .main-footer ul li{
+    font-size: 1rem;
+  }
+  .bottom-bar{
+    padding-bottom: 0;
+  }
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+  figure{
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+
+}
+
+/*Animate flying balloon*/
+@-webkit-keyframes dropBalloon {
+  from {
+    top: -20%;
+  }
+  to {
+    top: 110%;
+  }
+}
+
+@-moz-keyframes dropBalloon {
+  from {
+    top: -20%;
+  }
+  to {
+    top: 110%;
+  }
+}
+
+@-ms-keyframes dropBalloon {
+  from {
+    top: -20%;
+  }
+  to {
+    top: 110%;
+  }
+}
+
+@-o-keyframes dropBalloon {
+  from {
+    top: -20%;
+  }
+  to {
+    top: 110%;
+  }
+}
+
+@keyframes dropBalloon {
+  from {
+    top: -20%;
+  }
+  to {
+    top: 110%;
+  }
+}
