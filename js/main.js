@@ -6,7 +6,7 @@ var balloonInMovement = document.getElementsByClassName('')
 var counterSpan = document.querySelector('#counter span');
 var counter = 0;
 var level = 1;
-var setIntervalId;
+var setIntervalId = undefined;
 
 
 function startGame(){
@@ -14,15 +14,14 @@ function startGame(){
   body.classList.toggle('playing');
   balloonBoard.classList.toggle('open');
   startButton.classList.toggle('stop');
-
+  
   if(!document.body.classList.contains('playing')){
     setStartButton();
   }
   else{
     setStopButton();
-  }
-  //balloonBoard.setAttribute('class','balloon-board open');
     createBalloons();
+  }
 }
 function setStopButton(){
   startButton.innerHTML = 'STOP';
@@ -32,11 +31,17 @@ function setStartButton(){
   counter = 0;
   counterSpan.innerHTML = counter;
   body.setAttribute('style','');
-
-  //clearDom();
+  balloonBoard.innerHTML = "";
+  clearInterval(setIntervalId);
 }
 function clearDom(){
-  balloonBoard.innerHTML = "";
+  console.log('clear');
+}
+function end(){
+  
+  setStartButton();
+  clearDom();
+  //location.reload();
 }
 function addBalloon(){
   var balloon = new Balloon();
@@ -83,21 +88,35 @@ function moveAndDelete(e){
   var posLeft = currentBalloon.offsetLeft;
   var trashPos = generateRandomClass(classArr);
   counter++;
-  if(counter > 10){
+  if(counter >= 10){
     body.setAttribute('style','background:#000;opacity:.7;');
+  }
+  if(counter === 20){
+    end();
   }
   counterSpan.innerHTML = counter;
   currentBalloon.className += ' splash';
 
   currentBalloon.setAttribute("style", trashPos);
 
-  setTimeout(function(){
-    currentBalloon.parentNode.removeChild(currentBalloon);
-  },2000);
-
+  if(setIntervalId){
+    setTimeout(function(){
+      currentBalloon.parentNode.removeChild(currentBalloon);
+    },2000);
+  }
+  
 }
 
 
 startButton.addEventListener('click',startGame);
 
 clickBalloon();
+
+
+//big balloon
+/*
+var self = this;
+  self.setAttribute('class','balloon flyUp');
+  counter+=10;
+  counterSpan.innerHTML = counter;
+**/

@@ -123,9 +123,11 @@ img{
 .btn:hover,.btn.stop:hover{
   cursor: pointer;
   opacity: 0.8;
+  z-index: 10;
+}
+.btn:active{
   box-shadow: 0 0px #ab3c3c;
   transform: translateY(6px);
-  z-index: 10;
 }
 .main-content{
   text-align: center;
@@ -219,9 +221,12 @@ img{
 }
 #counter{
   position: absolute;
-  left: 50%;
+  left: -100%;
   top: 50%;
   transform: translate(-50%,-50%);
+}
+.playing #counter{
+  left: 50%;
 }
 #counter span{
   font-size: 200px;
